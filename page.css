@@ -1,0 +1,22 @@
+.choices{
+    display: flex;
+    justify-content: space-around;
+    gap: 12px;
+    
+}
+
+button{
+    color: brown;
+    background-color: lightgray;
+    border-style: none;
+    flex: 1;
+    margin: 16px;
+    padding: 16px;
+}
+
+.display{
+    display: flex;
+    justify-content: center;
+    background-color: blanchedalmond;
+}
+

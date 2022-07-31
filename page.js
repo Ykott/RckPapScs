@@ -1,3 +1,12 @@
+const buttons = document.querySelectorAll("button");
+buttons.forEach(button => button.addEventListener('click', choice));
+win = 0;
+lose = 0;
+
+function choice(e){
+    game(this.classList.value);
+}
+
 function computerPlay(){
     if(Math.random() >= .66666)
     {
@@ -8,6 +17,7 @@ function computerPlay(){
     }
     return "scissors";
 }
+
 
 function playRound(playerSelection, computerSelection){
     playerSelection = playerSelection.toLowerCase();
@@ -20,12 +30,18 @@ function playRound(playerSelection, computerSelection){
     return "lose! " + playerSelection + " loses to " + computerSelection;
 }
 
-function game(){
-    for(let i = 0; i < 5; i++)
-    {
+function game(playerSelection){
         let computerSelection = computerPlay();
-        let playerSelection = prompt("you choose");
-        console.log(playRound(playerSelection, computerSelection));
-    }
+        const ant = document.querySelector('.display');
+        ant.textContent=(playRound(playerSelection, computerSelection));
+        if(ant.textContent.substring(0,1) == "w"){
+            win ++;
+        }
+        if(ant.textContent.substring(0,1) == "l"){
+            lose++;
+        }
+        const vs = document.querySelector('.scoreBoard');
+        vs.textContent=(win + " - " + lose);
+
+
 }
-game();
